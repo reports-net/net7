@@ -49,5 +49,9 @@
     </Reference>
   </ItemGroup>
 
-
+	  <ItemGroup Condition="!Exists('$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.Azure.dll') And !Exists('$(ProgramFiles(x86))\Pao@Office\Reports.net\Pao.Reports.Azure.dll')">
+    	<!-- DLLが無ければNuGetを利用 -->
+    	<PackageReference Include="Reports.net.Azure" Version="7.0.0.1" />
+	  </ItemGroup>
+	  
 </Project>
