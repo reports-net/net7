@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// EventLogï¿½vï¿½ï¿½ï¿½oï¿½Cï¿½_ï¿½[ï¿½ð–¾Žï¿½ï¿½Iï¿½Éï¿½ï¿½O
+// EventLogƒvƒƒoƒCƒ_[‚ð–¾Ž¦“I‚ÉœŠO
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
@@ -23,11 +23,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.Lifetime.ApplicationStarted.Register(() =>
-{
-    System.Diagnostics.Process.Start(
-        new System.Diagnostics.ProcessStartInfo("http://localhost:5000") { UseShellExecute = true });
-});
 
 app.Run();
